@@ -3,7 +3,8 @@ body {
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 520px 50px 50px;
   justify-content: center;
   align-items: center;
   margin-top: 2em;
