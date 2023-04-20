@@ -1,5 +1,37 @@
+@font-face {
+  font-family: EnterCommand;
+  src:
+    url("fonts/entercommand.woff2") format("woff2"),
+    url("fonts/entercommand.woff") format("woff");
+  font-display: swap;
+}
+
 body {
   background: #223;
+}
+
+.page {
+  color: #fff;
+  font-family: EnterCommand, monospace;
+  line-height: 250%;
+}
+
+.page .title {
+  display: grid;
+  justify-content: center;
+}
+
+.title h1 {
+  font-size: 5rem;
+  margin-bottom: 0;
+  text-shadow: 4px 4px 0 black;
+}
+
+.title h1 + span {
+  font-size: 2rem;
+  color: hotpink;
+  justify-self: end;
+  display: inline-block;
 }
 
 .container {
@@ -8,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 2em;
+  gap: 30px;
 }
 
 .wheel {
@@ -27,6 +60,15 @@ body {
   border: 12px solid #fff;
   box-shadow: 4px 4px 20px #000;
   transform: rotateZ(var(--spin));
+}
+
+.wheel > div {
+  line-height: 40%;
+}
+
+.wheel > div span {
+  font-size: 0.6em;
+  color: gold;
 }
 
 .slice {
@@ -66,9 +108,13 @@ body {
 }
 
 img.police {
+  --size: 95px;
+
   position: absolute;
   transform: rotateZ(calc(360deg - var(--spin)));
   filter: drop-shadow(0 0 5px #000);
+  width: var(--size);
+  height: var(--size);
 }
 
 .arrow {
@@ -80,7 +126,15 @@ img.police {
   transform: translateX(-20px);
 }
 
-.spin-button {
+.options {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.spin-button,
+select {
   --gradient-color: linear-gradient(#0863a5, #1283d1);
   --border-color: #0b5a92;
 
@@ -100,9 +154,13 @@ img.police {
   text-decoration: none;
 }
 
-.spin-button:active {
+.spin-button:active:not([disabled]) {
   transform: translateY(4px);
   box-shadow:
     0 3px 0 var(--border-color),
     0 4px 3px #0000004d;
+}
+
+option {
+  color: black;
 }
